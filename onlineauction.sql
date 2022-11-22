@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 04:48 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Nov 22, 2022 at 08:26 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,27 +55,17 @@ CREATE TABLE `tblmembership` (
   `membershipId` int(11) NOT NULL,
   `accountId` int(11) NOT NULL,
   `typeOfMembership` varchar(255) NOT NULL,
-  `dateOfMembership` date NOT NULL
+  `dateOfMembership` date NOT NULL,
+  `dateOfMembershipEnds` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblmembership`
 --
 
-INSERT INTO `tblmembership` (`membershipId`, `accountId`, `typeOfMembership`, `dateOfMembership`) VALUES
-(1, 3, 'Initial Membership', '2022-11-10'),
-(2, 3, 'Initial Membership', '2022-11-17'),
-(3, 3, 'Initial Membership', '2022-11-17'),
-(4, 3, 'Initial Membership', '2022-11-17'),
-(5, 3, 'Initial Membership', '2022-11-17'),
-(6, 3, 'Initial Membership', '2022-11-17'),
-(7, 3, 'Initial Membership', '2022-11-17'),
-(8, 3, 'Initial Membership', '2022-11-17'),
-(9, 3, 'Initial Membership', '2022-11-17'),
-(10, 3, 'Initial Membership', '2022-11-17'),
-(11, 3, 'Initial Membership', '2022-11-17'),
-(12, 3, 'Initial Membership', '2022-11-17'),
-(13, 3, 'Initial Membership', '2022-11-17');
+INSERT INTO `tblmembership` (`membershipId`, `accountId`, `typeOfMembership`, `dateOfMembership`, `dateOfMembershipEnds`) VALUES
+(1, 1, 'initial membership', '2023-02-11', '2023-12-13'),
+(2, 4, 'Initial membership', '2021-12-08', '2021-12-31');
 
 --
 -- Indexes for dumped tables
@@ -108,7 +97,7 @@ ALTER TABLE `tblaccount`
 -- AUTO_INCREMENT for table `tblmembership`
 --
 ALTER TABLE `tblmembership`
-  MODIFY `membershipId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `membershipId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
