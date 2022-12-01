@@ -7,10 +7,27 @@ require_once('config.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Registration | Online Bidding</title>
+    <title>Item Registration | Online Auction</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
+<style>
+   .btn{
+        float: right;
+    }
+</style>
 <body>
+<div class="card">
+  <div class="card-body">
+    <a href="display_item.php">
+    <button type="button" class="btn btn-outline-primary">Bid Items</button>
+    </a>
+  
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+  <h5 class="card-title">Item Registration Process</h5>
+  </div>
+</div>
+
     <div>
         <?php
         if(isset($_POST['create'])){
@@ -70,6 +87,7 @@ require_once('config.inc.php');
 
                         <label for="itemname"><b>End Date</b></label>
                         <input class="form-control" type="date" name="enddate" required>
+                        <input class="form-control" type="time" name="enddate" required>
 
                         <hr class="mb-3">
                         <input class="btn btn-primary" type="submit" name="create" value="Register Item"> 

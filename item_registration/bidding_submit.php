@@ -17,7 +17,7 @@ if(isset($_POST['bid'])){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Bidding Successful | Online Auction</title>
     </head>
     <style>
 img {

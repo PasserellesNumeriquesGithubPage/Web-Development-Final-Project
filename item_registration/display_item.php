@@ -10,9 +10,23 @@ include_once('config.inc.php');
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <title>Bid Items | Online Bidding</title>
 </head>
+<style>
+   .btn{
+        float: right;
+    }
+</style>
 <body>
 <div class="card">
   <div class="card-body">
+  <a href="display_item.php">
+    <button type="button" class="btn btn-outline-primary">Bid Items</button>
+    </a>
+  
+    <a href="item_registration.php">
+    <button type="button" class="btn btn-outline-primary">Register Items</button>
+    </a>
+    
+    <button type="button" class="btn btn-outline-primary">Primary</button>
   <h5 class="card-title">Bid Items</h5>
   </div>
 </div>
