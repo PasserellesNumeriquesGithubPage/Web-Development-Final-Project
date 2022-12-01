@@ -54,8 +54,9 @@ require_once 'DB/dbconnect.inc';
               if (mysqli_num_rows($result_SELECT_date_query) === 1) {
                 $result_data = mysqli_fetch_array($result_SELECT_date_query);
                 $date = $result_data['dateOfMembershipEnds'];
-                if (date("Y-m-d") < $date) {
-                  header("Location:modal.php");
+                //Deri ang pag log in
+		if (date("Y-m-d") < $date) {
+                  header("Location:sample.php");
                 } else {
                   header("Location: modal.php");
                 }
@@ -72,6 +73,7 @@ require_once 'DB/dbconnect.inc';
           }
         }
         ?>
+	//Ang form ni sa pag log in
       </form>
       <div class="social-media">
         <p id="visit">Visit Us</p>
@@ -155,6 +157,7 @@ require_once 'DB/dbconnect.inc';
             }
           }
           ?>
+	//ang form ni sa pag register
         </form>
       </div>
     </div>
