@@ -1,85 +1,22 @@
 <?php
+  ob_start();
   session_start();
-  require 'controllers/authController.php';
+  require_once 'DB/dbconnect.inc';
+  if (isset($_SESSION['logged_in']) && isset($_SESSION['email']) && !empty($_SESSION['email'])){
+    $email = $_SESSION['email'];
+
+  }else{
+    session_unset();
+    header("Refresh: 0.5; url=index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    z-index: -1;
-    display: block;
-    background-color:green;
-}
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 20px;
-  left: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 70%;
-  height: 37rem;
-}
-p.modalAuctionHeader{
-    font-size: 30px;
-    margin: 2% 0 3% 40%;
-    color :#0D4C92;
-}
-p.modalAuctionSubHeader{
-    font-size: 20px;
-    margin: 0 0 3% 40%;
-}
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-.insideModal{
-    display: grid;
-    grid-template-columns: 1fr 200px 1fr;
-    grid-template-rows: 150px;
-    place-items: center;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem;
-    border: #0D4C92 dotted 2px;
-    height: 26rem;
-}
-i.membershipFee{
-  margin: 20% 0 0 0;
-  border: #26a0da solid 1px;
-  background-color: aqua;
-  text-align: center;
-  width: 20rem;
-  height: 10rem;
-}
-input.Fee{
-    width: 15rem;
-    color: black;
-    font-weight: 500;
-    height: 40px;
-    border: 10rem #26a0da;
-    cursor: pointer;
-}
-</style>
+  <title>MODAL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="assets/modal.css">
 </head>
 <body>
 <button id="myBtn" name="myBtn">Open Modal</button>
@@ -92,38 +29,107 @@ input.Fee{
             <div class="insideModal">
                 <i class="membershipFee">
                   <form method="post">
-                    <p>Initial Membership<br>1,000</p>
-                    <input type="submit" name="initialMembership" class="Fee" value="Be Part with Us">
+                    <p>One Day Membership<br>100</p>
+                    <input type="submit" name="oneDayMembership" class="Fee" value="Be Part with Us">
+                    <?php 
+                      if(isset($_POST['oneDayMembership'])){
+                        $id = $_SESSION['id'];
+                        $typeofmembership = "One Day Membership";
+                        $membershipToEnds = date("Y-m-d", strtotime(date("Y-m-d", strtotime($_SESSION['dateOfMembership']))." + 1 day"));
+                        $sql = "insert into tblmembership(accountId,typeOfMembership,dateofMembershipEnds) values('$id','$typeofmembership','$membershipToEnds')";
+                        $result = mysqli_query($conn, $sql) or die("Error in activating membership:" . mysqli_error($conn));
+                        echo '<script>alert("You are already part of our community!")</script>';
+                        echo "<script> location.href='index.php'; </script>";
+                      }
+                    ?>
                   </form>
                 </i>
                 <i class="membershipFee">
                   <form method="post">
-                    <p>Annual Fees<br>1,000</p>
-                    <input type="submit" name="membership" class="Fee" value="Be Part with Us">
+                    <p>Weekly Membership<br>300</p>
+                    <input type="submit" name="weeklyMembership" class="Fee" value="Be Part with Us">
+                    <?php 
+                      if(isset($_POST['weeklyMembership'])){
+                        $id = $_SESSION['id'];
+                        $typeofmembership = "Weekly Membership";
+                        $membershipToEnds = date("Y-m-d", strtotime(date("Y-m-d", strtotime($_SESSION['dateOfMembership']))." + 7 day"));
+                        $sql = "insert into tblmembership(accountId,typeOfMembership,dateOfMembership,dateofMembershipEnds) values('$id','$typeofmembership','$membershipToEnds')";
+                        $result = mysqli_query($conn, $sql) or die("Error in activating membership:" . mysqli_error($conn));
+                        echo '<script>alert("You are already part of our community!")</script>';
+                        echo "<script> location.href='index.php'; </script>";
+
+                      }
+                    ?>
                   </form>
                 </i> 
                 <i class="membershipFee">
                   <form method="post">
-                    <p>Monthal Fees<br>1,000</p>
-                    <input type="submit" name="membership" class="Fee" value="Be Part with Us">
+                    <p>Montly Membership<br>1,000</p>
+                    <input type="submit" name="monthlyMembership" class="Fee" value="Be Part with Us">
+                    <?php 
+                      if(isset($_POST['monthlyMembership'])){
+                        $id = $_SESSION['id'];
+                        $typeofmembership = "Monthly Membership";
+                        $membershipToEnds = date("Y-m-d", strtotime(date("Y-m-d", strtotime($_SESSION['dateOfMembership']))." + 30 day"));
+                        $sql = "insert into tblmembership(accountId,typeOfMembership,dateOfMembership,dateofMembershipEnds) values('$id','$typeofmembership','$membershipToEnds')";
+                        $result = mysqli_query($conn, $sql) or die("Error in activating membership:" . mysqli_error($conn));
+                        echo '<script>alert("You are already part of our community!")</script>';
+                        echo "<script> location.href='index.php'; </script>";
+
+                      }
+                    ?>
                   </form>
                 </i>
                 <i class="membershipFee">
                   <form method="post">
-                    <p>Quarteral Fees<br>1,000</p>
-                    <input type="submit" name="membership" class="Fee" value="Be Part with Us">
+                    <p>Half-Year Membership<br>5,000</p>
+                    <input type="submit" name="half-yearlyMembership" class="Fee" value="Be Part with Us">
+                    <?php 
+                      if(isset($_POST['half-yearlyMembership'])){
+                        $id = $_SESSION['id'];
+                        $typeofmembership = "Half-yearly Membership";
+                        $membershipToEnds = date("Y-m-d", strtotime(date("Y-m-d", strtotime($_SESSION['dateOfMembership']))." + 182 day"));
+                        $sql = "insert into tblmembership(accountId,typeOfMembership,dateOfMembership,dateofMembershipEnds) values('$id','$typeofmembership','$membershipToEnds')";
+                        $result = mysqli_query($conn, $sql) or die("Error in activating membership:" . mysqli_error($conn));
+                        echo '<script>alert("You are already part of our community!")</script>';
+                        echo "<script> location.href='index.php'; </script>";
+
+                      }
+                    ?>
                   </form>
                 </i>
                 <i class="membershipFee">
                   <form method="post">
-                    <p>Semiannual Fees<br>1,000</p>
-                    <input type="submit" name="membership" class="Fee" value="Be Part with Us">
+                    <p>Yearly Membership<br>10,000</p>
+                    <input type="submit" name="yearlyMembership" class="Fee" value="Be Part with Us">
+                    <?php 
+                      if(isset($_POST['yearlyMembership'])){
+                        $id = $_SESSION['id'];
+                        $typeofmembership = "Yearly Membership";
+                        $membershipToEnds = date("Y-m-d", strtotime(date("Y-m-d", strtotime($_SESSION['dateOfMembership']))." + 365 day"));
+                        $sql = "insert into tblmembership(accountId,typeOfMembership,dateOfMembership,dateofMembershipEnds) values('$id','$typeofmembership','$membershipToEnds')";
+                        $result = mysqli_query($conn, $sql) or die("Error in activating membership:" . mysqli_error($conn));
+                        echo '<script>alert("You are already part of our community!")</script>';
+                        echo "<script> location.href='index.php'; </script>";
+                      }
+                    ?>
                   </form>
                 </i>
                 <i class="membershipFee">
                   <form method="post">
-                    <p>Cancellation Fees<br>1,000</p>
-                    <input type="submit" name="membership" class="Fee" value="Be Part with Us">
+                    <p>Decade Membership<br>15,000</p>
+                    <input type="submit" name="decadeMembership" class="Fee" value="Be Part with Us">
+                    <?php 
+                      if(isset($_POST['decadeMembership'])){
+                        $id = $_SESSION['id'];
+                        $typeofmembership = "Decade Membership";
+                        $membershipToEnds = date("Y-m-d", strtotime(date("Y-m-d", strtotime($_SESSION['dateOfMembership']))." + 730 day"));
+                        $sql = "insert into tblmembership(accountId,typeOfMembership,dateOfMembership,dateofMembershipEnds) values('$id','$typeofmembership','$membershipToEnds')";
+                        $result = mysqli_query($conn, $sql) or die("Error in activating membership:" . mysqli_error($conn));
+                        echo '<script>alert("You are already part of our community!")</script>';
+                        echo "<script> location.href='index.php'; </script>";
+                      }
+                    ?>
                   </form>
                 </i>
             </div>
