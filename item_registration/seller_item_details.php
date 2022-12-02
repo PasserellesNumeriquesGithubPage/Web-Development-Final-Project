@@ -1,6 +1,6 @@
 <?php
 include_once('config.inc.php');
-require_once('usercontroller.php');
+require_once('seller_usercontroller.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +106,7 @@ var x = setInterval(function() {
     <div class="col">
     <div class="infotext">
           <div class="col">
-          <a href="bidding.php?bidnow=<?php echo $row['itemNumber'] ?>"><button type="button" class="btn btn-outline-success">Bid Now</button></a>
+          <!-- <a href="bidding.php?bidnow="><button type="button" class="btn btn-outline-success">Bid Now</button></a> -->
           
           <h2>Bidding Ends at : <p id="demo"></p></h2><br>
           </div>
@@ -151,7 +151,7 @@ var x = setInterval(function() {
         <?php }?>
           <hr>
           <?php
-          require_once('usercontroller.php');
+          require_once('seller_usercontroller.php');
         $sql =("SELECT * FROM tbl_sellers WHERE user_id = '$id';");
         $result = mysqli_query($conn,$sql);
         while($res= mysqli_fetch_array($result)){

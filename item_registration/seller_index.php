@@ -1,4 +1,4 @@
-<?php require_once('usercontroller.php')?>
+<?php require_once('seller_usercontroller.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
 <body>
     <h1>Hello Seller ! <br> <?php echo $name;?> <?php echo $lastname;?></h1>
     <a href="item_registration.php">Item Registration</a><br>
-    <a href="display_item.php">Item Display</a><br>
+    <a href="seller_display_item.php">Item Display</a><br>
     <a href="logout.php">Log out</a><br>
 </body>
 </html>

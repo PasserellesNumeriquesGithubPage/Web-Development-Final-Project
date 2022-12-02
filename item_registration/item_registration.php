@@ -1,6 +1,6 @@
 <?php
 require_once('config.inc.php');
-require_once('usercontroller.php')
+require_once('seller_usercontroller.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ require_once('usercontroller.php')
 
     <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
 
-    <a href="display_item.php">
+    <a href="seller_display_item.php">
     <button type="button" class="btn btn-outline-primary">Bid Items</button>
     </a>
   

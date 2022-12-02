@@ -5,8 +5,9 @@ if(isset($_POST['bid'])){
     $price = mysqli_real_escape_string($conn,$_POST['price']);
     $name = mysqli_real_escape_string($conn,$_POST['bidder']);
     $mobile = mysqli_real_escape_string($conn,$_POST['mobile']);
+    $id = mysqli_real_escape_string($conn,$_POST['user_id']);
 
-    $sql = "INSERT INTO bids_registered(bidderName,itemNumber,bidValue,mobileNumber,bidDate) VALUES ('$name','$itemnumber','$price','$mobile',NOW())";
+    $sql = "INSERT INTO bids_registered(bidderName,itemNumber,bidValue,mobileNumber,bidDate,user_id) VALUES ('$name','$itemnumber','$price','$mobile',NOW(),'$id')";
 
     $result = mysqli_query($conn,$sql);
     ?>
@@ -30,10 +31,27 @@ img {
 h2{
     text-align: center;
 }
+.btn{
+    float: right;
+}
 </style>
     <body>
     <div class="card">
   <div class="card-body">
+  <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
+
+<a href="bidder_display_item.php">
+<button type="button" class="btn btn-outline-primary">Bid Items</button>
+</a>
+
+<a href="bidder_inventory.php">
+<button type="button" class="btn btn-outline-primary">Inventory</button>
+</a>
+
+<a href="bidder_inventory.php">
+<button type="button" class="btn btn-outline-primary">Bid History</button>
+</a>
+
   <h5 class="card-title">Bidding Process</h5>
   </div>
 </div>
@@ -44,7 +62,7 @@ h2{
 
             <h4>for Item Number <?php echo $itemnumber; ?></h4><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <hr class="mb-3">
-            <a href="display_item.php"><button type="button" class="btn btn-outline-info">Go to Display Items</button></a>
+            <a href="bidder_display_item.php"><button type="button" class="btn btn-outline-info">Go to Display Items</button></a>
         </div>
     <?php
     if(isset($_POST['bid'])){

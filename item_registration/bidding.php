@@ -21,6 +21,9 @@ img {
 h2{
     text-align: center;
 }
+.btn{
+    float: right;
+}
 </style>
 <body>
     
@@ -33,6 +36,20 @@ h2{
         ?>
 <div class="card">
   <div class="card-body">
+  <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
+
+<a href="bidder_display_item.php">
+<button type="button" class="btn btn-outline-primary">Bid Items</button>
+</a>
+
+<a href="bidder_inventory.php">
+<button type="button" class="btn btn-outline-primary">Inventory</button>
+</a>
+
+<a href="bidder_inventory.php">
+<button type="button" class="btn btn-outline-primary">Bid History</button>
+</a>
+
   <h5 class="card-title">Bidding Process</h5>
   </div>
 </div>
@@ -51,16 +68,20 @@ h2{
                         <input class="form-control" type="text" name="itemnumber" value="<?php echo $itemnumber?>" required>
 
                         <hr class="mb-3">
-                        <label for="bidder"><b>Enter Name</b></label>
-                        <input class="form-control" type="text" name="bidder" required>
-
-                        <hr class="mb-3">
                         <label for="price"><b>Enter Price</b></label>
                         <input class="form-control" type="text" name="price" required>
+                        <?php  include('bidder_usercontroller.php');?>
+                        <hr class="mb-3">
+                        <label for="bidder"><b>Enter Name</b></label>
+                        <input class="form-control" type="text" name="bidder" value="<?php echo $name?>" required>
 
                         <hr class="mb-3">
                         <label for="mobile"><b>Mobile Number</b></label>
-                        <input class="form-control" type="text" name="mobile" required>
+                        <input class="form-control" type="text" name="mobile" value="<?php echo $mobile?>" required>
+
+                        <hr class="mb-3">
+                        <label for="mobile"><b>User ID</b></label>
+                        <input class="form-control" type="text" name="user_id" value="<?php echo $id?>" required>
 
                         <hr class="mb-3">
                         <a href="bidding_submit.php"><input class="btn btn-primary" type="submit" name="bid" value="Register Bid"></a>
@@ -80,6 +101,7 @@ h2{
                     <h2><?php echo $row['itemName']?></h2>
       <img src="images/<?php echo $row['itemImg'];?>" alt="" >
                     </div>
+                    
                     <?php
           }
 }else{

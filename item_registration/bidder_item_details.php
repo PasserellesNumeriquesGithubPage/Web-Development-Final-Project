@@ -1,6 +1,6 @@
 <?php
 include_once('config.inc.php');
-require_once('usercontroller.php');
+require_once('bidder_usercontroller.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,17 +42,19 @@ require_once('usercontroller.php');
   <div class="card-body">
   <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
 
-<a href="display_item.php">
+<a href="bidder_display_item.php">
 <button type="button" class="btn btn-outline-primary">Bid Items</button>
 </a>
 
-<a href="item_registration.php"><button type="button" class="btn btn-outline-primary">Register Items</button></a>
-
-<a href="seller_inventory.php">
-<button type="button" class="btn btn-outline-primary">Seller's Inventory</button>
+<a href="bidder_inventory.php">
+<button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
+
+<a href="bidder_inventory.php">
+<button type="button" class="btn btn-outline-primary"> Bids History</button>
+</a>
+
   <h5 class="card-title">Bidding Process</h5>
-  
   </div>
 </div>
     <?php
@@ -151,7 +153,7 @@ var x = setInterval(function() {
         <?php }?>
           <hr>
           <?php
-          require_once('usercontroller.php');
+          require_once('bidder_usercontroller.php');
         $sql =("SELECT * FROM tbl_sellers WHERE user_id = '$id';");
         $result = mysqli_query($conn,$sql);
         while($res= mysqli_fetch_array($result)){
