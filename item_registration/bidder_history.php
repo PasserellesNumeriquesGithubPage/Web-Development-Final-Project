@@ -50,7 +50,7 @@
    
     <tbody>
         <?php 
-    $stmt = $db->prepare("SELECT * FROM auction_result WHERE user_id = '$id'");
+    $stmt = $db->prepare("SELECT * FROM bids_registered WHERE user_id = '$id'");
     $stmt->execute();
     $result = $stmt->fetchAll();
     ?>
