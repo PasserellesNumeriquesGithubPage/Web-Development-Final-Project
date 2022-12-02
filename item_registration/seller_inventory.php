@@ -1,6 +1,5 @@
-<?php
-include_once('config.inc.php');
-?>
+<?php include_once('config.inc.php');?>
+<?php require_once('usercontroller.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@ include_once('config.inc.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <title>Bid Items | Online Bidding</title>
+    <title>Seller's Inventory | Online Bidding</title>
 </head>
 <style>
    .btn{
@@ -31,7 +30,7 @@ include_once('config.inc.php');
 <button type="button" class="btn btn-outline-primary">Seller's Inventory</button>
 </a>
 
-  <h5 class="card-title">Bid Items</h5>
+  <h5 class="card-title">Inventory</h5>
   </div>
 </div>
 
@@ -39,7 +38,7 @@ include_once('config.inc.php');
   <div class="container">
 
     <?php 
-    $stmt = $db->prepare("SELECT * FROM items_registered");
+    $stmt = $db->prepare("SELECT * FROM items_registered WHERE user_id = '$id'");
     $stmt->execute();
     $result = $stmt->fetchAll();
 
@@ -61,7 +60,7 @@ include_once('config.inc.php');
    
     <tbody>
       <tr>
-        <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="200px" height="200px"></td>
+        <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="100px" height="100px"></td>
         <td><?php echo $row['itemName']; ?></td>
         <td><?php echo $row['itemDesc']; ?></td>
         <td><?php echo $row['itemValue']; ?></td>

@@ -44,9 +44,10 @@ h2{
                         <hr>
                         <h1>Bid Registration</h1>
 
-                        <h4>for Item Number </h4>
+                        <h4>for Item Number <?php echo $itemnumber?> </h4>
 
                         <hr class="mb-3">
+                        <label for="bidder"><b>Item Number</b></label>
                         <input class="form-control" type="text" name="itemnumber" value="<?php echo $itemnumber?>" required>
 
                         <hr class="mb-3">
