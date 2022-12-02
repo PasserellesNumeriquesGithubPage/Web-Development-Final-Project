@@ -1,6 +1,6 @@
 <?php
 include_once('config.inc.php');
-require_once('bidder_usercontroller.php');
+require_once('seller_usercontroller.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +60,7 @@ require_once('bidder_usercontroller.php');
     <?php
     if(isset($_GET['view'])){
         $itemNumber = $_GET['view'];
+        
         $sql =("SELECT * FROM items_registered WHERE itemNumber = '".$_GET['view']."'");
         $result = mysqli_query($conn,$sql);
 
@@ -151,10 +152,13 @@ var x = setInterval(function() {
             <h5>Bid Value: ₱ <?php echo $res['bidValue']?> </h5>
             <h5>Time Bidded: <?php echo $res['bidDate']?></h5>
         <?php }?>
+
           <hr>
           <?php
-          require_once('bidder_usercontroller.php');
-        $sql =("SELECT * FROM tbl_sellers WHERE user_id = '$id';");
+        if(isset($_GET['id'])){
+        $id= $_GET['id'];
+        
+        $sql =("SELECT * FROM tbl_sellers WHERE user_id = '$id'");
         $result = mysqli_query($conn,$sql);
         while($res= mysqli_fetch_array($result)){
     ?>
@@ -162,7 +166,7 @@ var x = setInterval(function() {
         <h5>Name: <?php echo $res['first_name']?> <?php echo $res['last_name']?></h5>
         <h5>Contact Number: <?php echo $res['contact_no']?></h5>
     </div>
-    <?php }?>
+    <?php }}?>
     <div>
       
 

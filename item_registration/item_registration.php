@@ -105,7 +105,7 @@ require_once('seller_usercontroller.php')
             
             // if(mysqli_num_rows($result) == 1){
                 echo "Registered sucessfully.<br>";
-                header('Location: display_item.php');
+                header('Location: seller_display_item.php');
                 exit();
             // }
 

@@ -66,6 +66,7 @@ include_once('config.inc.php');
         <td><?php echo $row['itemDesc']; ?></td>
         <td><?php echo $row['itemValue']; ?></td>
         <td><?php echo $row['endDate']; ?></td>
+        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>&id=<?php echo $row['user_id']?>"><button type="button" class="btn btn-outline-success">View Item</button></a>
         <td></td>
       </tr>
     </tbody>

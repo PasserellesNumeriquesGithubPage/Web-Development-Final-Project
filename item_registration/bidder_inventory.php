@@ -61,8 +61,7 @@
         <td><?php echo $row['itemNumber']; ?></td>
         <td><?php echo $row['bidValue']; ?></td>
         <td><?php echo $row['bidDate']; ?></td>
-        <td> <a href="bidder_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a><?php }?>
-        </td>
+       <?php }?>
       </tr>
     </tbody>
    

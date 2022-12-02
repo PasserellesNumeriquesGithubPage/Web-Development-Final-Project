@@ -27,7 +27,7 @@
     <a href="item_registration.php"><button type="button" class="btn btn-outline-primary">Register Items</button></a>
 
     <a href="seller_inventory.php">
-<button type="button" class="btn btn-outline-primary">Seller's Inventory</button>
+<button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
   <h5 class="card-title">Items Auctioned</h5>
@@ -65,8 +65,9 @@
         <td><?php echo $row['itemDesc']; ?></td>
         <td><?php echo $row['itemValue']; ?></td>
         <td><?php echo $row['endDate']; ?></td>
-        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a>
-        </td>
+        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a></td>
+        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-warning">Forfeit Auction</button></a></td>
+        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-danger">Cancel Auction</button></a></td>
       </tr>
     </tbody>
     <?php
