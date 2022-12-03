@@ -3,9 +3,9 @@
 ?><?php 
 if(isset($_GET['view'])){
     $item=$_GET['view'];
+    $id=$_GET['id'];
 require_once('config.inc.php');
-$sql=("INSERT INTO auction_result SELECT * FROM item_registered  WHERE itemNumber = '$item' ORDER BY bidValue DESC LIMIT 1 ");
-
+$sql=("INSERT INTO auction_result (itemNumber,user_id) VALUES ('$item','$id')");
 
 if(mysqli_query($conn, $sql)) {
   echo "Record deleted successfully";

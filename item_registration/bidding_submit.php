@@ -7,7 +7,7 @@ if(isset($_POST['bid'])){
     $mobile = mysqli_real_escape_string($conn,$_POST['mobile']);
     $id = mysqli_real_escape_string($conn,$_POST['user_id']);
 
-    $sql = "INSERT INTO bids_registered(bidderName,itemNumber,bidValue,mobileNumber,bidDate,user_id) VALUES ('$name','$itemnumber','$price','$mobile',NOW(),'$id')";
+    $sql = "INSERT INTO bids_registered(bidderName,itemNumber,bidValue,mobileNumber,bidDate,seller_id) VALUES ('$name','$itemnumber','$price','$mobile',NOW(),'$id')";
 
     $result = mysqli_query($conn,$sql);
     ?>
