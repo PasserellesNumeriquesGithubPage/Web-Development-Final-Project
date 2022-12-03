@@ -50,8 +50,8 @@ require_once('seller_usercontroller.php');
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-<a href="bidder_inventory.php">
-<button type="button" class="btn btn-outline-primary"> Bids History</button>
+<a href="bidder_history.php">
+<button type="button" class="btn btn-outline-primary">Bid History</button>
 </a>
 
   <h5 class="card-title">Bidding Process</h5>

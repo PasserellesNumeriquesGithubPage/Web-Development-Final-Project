@@ -20,7 +20,7 @@ include_once('config.inc.php');
   <div class="card-body">
   <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
 
-    <a href="display_item.php">
+    <a href="seller_display_item.php">
     <button type="button" class="btn btn-outline-primary">Bid Items</button>
     </a>
     

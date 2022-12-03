@@ -46,7 +46,7 @@ h2{
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-<a href="bidder_inventory.php">
+<a href="bidder_history.php">
 <button type="button" class="btn btn-outline-primary">Bid History</button>
 </a>
 

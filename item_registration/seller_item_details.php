@@ -49,7 +49,7 @@ require_once('seller_usercontroller.php');
 <a href="item_registration.php"><button type="button" class="btn btn-outline-primary">Register Items</button></a>
 
 <a href="seller_inventory.php">
-<button type="button" class="btn btn-outline-primary">Seller's Inventory</button>
+<button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
   <h5 class="card-title">Bidding Process</h5>
   
@@ -91,6 +91,7 @@ var x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("demo").innerHTML = "BIDDING CLOSED";
+    window.location.replace("seller_forfeit_auction.php");
   }
 }, 1000);
 </script>

@@ -29,7 +29,7 @@ require_once('seller_usercontroller.php')
     <a href="item_registration.php"><button type="button" class="btn btn-outline-primary">Register Items</button></a>
 
     <a href="seller_inventory.php">
-<button type="button" class="btn btn-outline-primary">Seller's Inventory</button>
+<button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
     
   <h5 class="card-title">Item Registration Process</h5>

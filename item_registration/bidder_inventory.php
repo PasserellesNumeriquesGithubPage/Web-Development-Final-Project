@@ -27,7 +27,7 @@
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-<a href="bidder_inventory.php">
+<a href="bidder_history.php">
 <button type="button" class="btn btn-outline-primary">Bid History</button>
 </a>
 
@@ -40,13 +40,10 @@
     <table class="table table-striped">
     <thead>
       <tr>
-        <th></th>
+        
         <th>Item Number</th>
+        <th></th>
         <th>Item Name</th>
-        <th>Bid Value</th>
-        <th>Bid Date</th>
-        <th>Seller Name</th>
-        <th>Contact Number</th>
         <th></th>
       </tr>
     </thead>
@@ -68,29 +65,14 @@
     foreach($result as $row){
     ?>
         <tr>
-        <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="100px" height="100px"></td>
+        
         <td><?php echo $row['itemNumber']; ?></td>
+        <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="100px" height="100px"></td>
         <td><?php echo $row['itemName']; ?></td>
+
+        <td><a href="bidder_delete_inventory.php?view=<?php echo $row['itemNumber'] ?>"><button type="button" class="btn btn-outline-success">Claim</button></a></td>
         <?php }?>
-
         
-        
-    <!-- <?php 
-    $stmt = $db->prepare(
-    "SELECT tbl_sellers.* 
-    FROM auction_result
-    INNER JOIN tbl_sellers
-    ON auction_result.user_id = tbl_sellers.user_id"
-    );
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    ?>
-    <?php foreach($result as $row){
-    ?>
-        <td><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></td>
-        <td><?php echo $row['contact_no']; ?></td>
-
-        <?php }?> -->
         
       </tr>
     </tbody>

@@ -7,7 +7,7 @@ if(isset($_POST['bid'])){
     $mobile = mysqli_real_escape_string($conn,$_POST['mobile']);
     $id = mysqli_real_escape_string($conn,$_POST['user_id']);
 
-    $sql = "INSERT INTO bids_registered(bidderName,itemNumber,bidValue,mobileNumber,bidDate,seller_id) VALUES ('$name','$itemnumber','$price','$mobile',NOW(),'$id')";
+    $sql = "INSERT INTO bids_registered(bidderName,itemNumber,bidValue,mobileNumber,bidDate,bidder_id) VALUES ('$name','$itemnumber','$price','$mobile',NOW(),'$id')";
 
     $result = mysqli_query($conn,$sql);
     ?>
@@ -48,7 +48,7 @@ h2{
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-<a href="bidder_inventory.php">
+<a href="bidder_history.php">
 <button type="button" class="btn btn-outline-primary">Bid History</button>
 </a>
 

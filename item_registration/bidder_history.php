@@ -27,7 +27,7 @@
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-<a href="bidder_inventory.php">
+<a href="bidder_history.php">
 <button type="button" class="btn btn-outline-primary">Bid History</button>
 </a>
 
@@ -41,6 +41,8 @@
     <thead>
       <tr>
         <th>Item Number</th>
+        <th></th>
+        <th>Item Name</th>
         <th>Bid Value</th>
         <th>Bid Date</th>
         <th></th>
@@ -49,16 +51,34 @@
     
    
     <tbody>
-        <?php 
-    $stmt = $db->prepare("SELECT * FROM bids_registered WHERE user_id = '$id'");
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    ?>
-    <?php
-    foreach($result as $row){
-    ?>
         <tr>
+        <?php 
+          $stmt = $db->prepare(
+          "SELECT items_registered.* 
+          FROM bids_registered
+          INNER JOIN items_registered
+          ON bids_registered.itemNumber = items_registered.itemNumber LIMIT 1");
+          $stmt->execute();
+          $result = $stmt->fetchAll();
+          ?>
+          <?php
+          foreach($result as $row){
+          ?>
         <td><?php echo $row['itemNumber']; ?></td>
+        <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="100px" height="100px"></td>
+        <td><?php echo $row['itemName']; ?></td>
+       <?php }?>
+        <?php 
+          $stmt = $db->prepare(
+          "SELECT * 
+          FROM bids_registered
+          WHERE bidder_id = '$id'");
+          $stmt->execute();
+          $result = $stmt->fetchAll();
+          ?>
+          <?php
+          foreach($result as $row){
+          ?>
         <td><?php echo $row['bidValue']; ?></td>
         <td><?php echo $row['bidDate']; ?></td>
        <?php }?>
