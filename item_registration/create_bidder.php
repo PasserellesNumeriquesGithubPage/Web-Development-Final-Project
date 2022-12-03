@@ -64,7 +64,7 @@ require_once('config.inc.php');
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
-                        <h1>Seller Registration</h1>
+                        <h1>Online Auction || Seller Registration</h1>
                         <p>Fill up the form with correct values.</p>
                         <hr class="mb-3">
                         <label for="set_username"><b>Enter Username</b></label>

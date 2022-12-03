@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <title>Seller's Inventory | Online Bidding</title>
+    <title>nventory | Online Bidding</title>
 </head>
 <style>
    .btn{
@@ -18,6 +18,8 @@
 <div class="card">
   <div class="card-body">
   <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
+
+  <a href="seller_index.php"><button type="button" class="btn btn-outline-info">My Info</button></a>
 
     <a href="seller_display_item.php">
     <button type="button" class="btn btn-outline-primary">Bid Items</button>
@@ -30,13 +32,12 @@
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-  <h5 class="card-title">Items Auctioned</h5>
+  <h5 class="card-title">Online Auction || Items You Auctioned</h5>
   </div>
 </div>
 
 <div class="container">
   <div class="container">
-
     <?php 
     $stmt = $db->prepare("SELECT * FROM items_registered WHERE user_id = '$id'");
     $stmt->execute();
@@ -68,19 +69,18 @@
 
         <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a></td>
 
-        <td> <a href="seller_delete_inventory.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-danger">Cancel Auction</button></a></td>
+        <td> <a href="seller_delete_inventory.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-danger">Cancel Auction</button></a></td> <?php }?>
 
-        <td><a href="seller_forfeit_auction.php?view=<?php echo $row['itemNumber']?>&id=<?php echo $row['user_id']?>&bid=<?php }?><?php $stmt = $db->prepare("SELECT * FROM bids_registered ");
-        $stmt->execute();$result = $stmt->fetchAll();foreach($result as $row){?><?php echo $row['bidder_id']?>"><button type="button" class="btn btn-outline-warning">Forfeit Auction</button></a></td>
-        
-      </tr>
+        <?php $stmt = $db->prepare("SELECT items_registered.itemNumber, items_registered.user_id, bids_registered.bidder_id FROM items_registered INNER JOIN bids_registered ON bids_registered.itemNumber=items_registered.itemNumber;");
+
+         $stmt->execute();$result = $stmt->fetchAll();foreach($result as $row){?>
+        <td><a href="seller_forfeit_auction.php?view=<?php echo $row['itemNumber']?>&id=<?php echo $row['user_id']?>&bid=<?php echo $row['bidder_id']?>"><button type="button" class="btn btn-outline-warning">Forfeit Auction</button></a></td>  
+
+
+        </tr>
     </tbody>
-    <?php
-    }
-    ?>
     </table>
-    
-
+    <?php }?>
     
 
   </div>

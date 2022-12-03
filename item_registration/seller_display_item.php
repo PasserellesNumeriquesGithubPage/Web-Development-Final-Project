@@ -20,18 +20,20 @@ include_once('config.inc.php');
   <div class="card-body">
   <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
 
+  <a href="seller_index.php"><button type="button" class="btn btn-outline-info">My Info</button></a>
+
     <a href="seller_display_item.php">
-    <button type="button" class="btn btn-outline-primary">Bid Items</button>
+    <button type="button" class="btn btn-outline-primary">Bid Items </button>
     </a>
     
   
     <a href="item_registration.php"><button type="button" class="btn btn-outline-primary">Register Items</button></a>
 
     <a href="seller_inventory.php">
-<button type="button" class="btn btn-outline-primary">Seller's Inventory</button>
+<button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
 
-  <h5 class="card-title">Bid Items</h5>
+  <h5 class="card-title">Online Auction || Bid Items</h5>
   </div>
 </div>
 
@@ -58,7 +60,6 @@ include_once('config.inc.php');
     <?php
     foreach($result as $row){
     ?>
-   
     <tbody>
       <tr>
         <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="200px" height="200px"></td>

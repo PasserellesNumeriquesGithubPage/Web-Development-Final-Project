@@ -10,17 +10,31 @@ require_once('seller_usercontroller.php')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Registration | Online Auction</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="jquery-3.6.1.min.js"></script>
 </head>
 <style>
    .btn{
         float: right;
     }
+    img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2rem;
+  width: 50%
+}
+h2{
+    text-align: center;
+}
 </style>
 <body>
 <div class="card">
   <div class="card-body">
 
     <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
+
+    <a href="seller_index.php"><button type="button" class="btn btn-outline-info">My Info</button></a>
 
     <a href="seller_display_item.php">
     <button type="button" class="btn btn-outline-primary">Bid Items</button>
@@ -32,7 +46,7 @@ require_once('seller_usercontroller.php')
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
     
-  <h5 class="card-title">Item Registration Process</h5>
+  <h5 class="card-title">Online Auction || Item Registration Process</h5>
   </div>
 </div>
 
@@ -41,7 +55,7 @@ require_once('seller_usercontroller.php')
         <form action="item_registration.php" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <h1>Item Registration</h1>
                         <p>Fill up the form with correct values.</p>
                         <hr class="mb-3">
@@ -52,7 +66,7 @@ require_once('seller_usercontroller.php')
                         <input class="form-control" type="text" name="itemname" required>
 
                         <label for="itemimg"><b>Upload Image</b></label>
-                        <input class="form-control" type="file" id ="itemimg" name="itemimg" required>
+                        <input class="form-control" type="file" id ="itemimg"  name="itemimg" required>
 
                         <label for="itemdesc"><b>Item Description</b></label>
                         <input class="form-control" type="text" name="itemdesc" required>
@@ -77,13 +91,16 @@ require_once('seller_usercontroller.php')
 
                         <hr class="mb-3">
                         <input class="btn btn-primary" type="submit" name="create" value="Register Item"> 
-
                     </div>
                 </div>
             </div>
         </form>
-
     </div>
+   
+    <div>
+        
+    </div>
+
         <?php
         if(isset($_POST['create'])){
             $itemgrp    = $_POST['itemgrp'];

@@ -20,6 +20,8 @@ include_once('config.inc.php');
   <div class="card-body">
   <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
 
+  <a href="bidder_index.php"><button type="button" class="btn btn-outline-info">My Info</button></a>
+
 <a href="bidder_display_item.php">
 <button type="button" class="btn btn-outline-primary">Bid Items</button>
 </a>
@@ -33,7 +35,7 @@ include_once('config.inc.php');
 </a>
 
 
-  <h5 class="card-title">Bid Items</h5>
+  <h5 class="card-title">Online Auction || Bid Items</h5>
   </div>
 </div>
 
@@ -46,6 +48,7 @@ include_once('config.inc.php');
     $result = $stmt->fetchAll();
 
     ?>
+    
     <table class="table table-striped">
     <thead>
       <tr>

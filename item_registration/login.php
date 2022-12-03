@@ -59,10 +59,47 @@ if(isset($_POST['submit'])){
 
 <html>
     <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <title>Login</title>
     </head>
     <body>
-        <form action="login.php" method="post" name="login">
+    <div class="card">
+  <div class="card-body">
+  <h5 class="card-title">Online Auction || Log In Process</h5>
+  </div>
+</div>
+        <form action="login.php" method="POST" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                            <br><hr>
+                        <h1>User Log In</h1>
+                        <p>Fill up the form with correct values.</p>
+                        <hr class="mb-3">
+                        <label for="user"></label>
+                        <input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
+
+                        <label for="pass"></label>
+                        <input class="form-control" type="text" name="password" id="password" placeholder="Password" required>
+
+                        <hr class="mb-3">
+                        <input class="btn btn-primary" type="submit" name="submit" value="Enter Auction"> <hr>
+                        <h2>User Registration</h2>
+                        <p>Create account for new users.</p>
+
+                        <h5>For Bidders</h5>
+                        <a href="create_bidder.php"> <button type="button" class="btn btn-info">Create Bidder Account</button></a>
+                        <br><br>
+                        <h5>For Sellers</h5>
+                        <a href="create_seller.php"> <button type="button" class="btn btn-info">Create Seller Account</button></a>
+                       
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    
+        <!-- <form action="login.php" method="post" name="login">
             <input type="text" name="username" id="username" placeholder="Username">
             <input type="text" name="password" id="password" placeholder="Password">
             <input type="submit" name="submit" id="submit" value="Login">
@@ -70,6 +107,6 @@ if(isset($_POST['submit'])){
         <div>
         <a href="create_seller.php">Create Seller Account</a><br>
     <a href="create_bidder.php">Create Bidder Account</a><br>
-        </div>
+        </div> -->
     </body>
 </html>

@@ -18,7 +18,7 @@ require_once('config.inc.php');
 <body>
 <div class="card">
   <div class="card-body">
-  <h5 class="card-title">Seller Registration Process</h5>
+  <h5 class="card-title">Online Auction || Seller Registration Process</h5>
   </div>
 </div>
 

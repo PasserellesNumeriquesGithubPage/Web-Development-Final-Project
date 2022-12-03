@@ -42,6 +42,8 @@ require_once('seller_usercontroller.php');
   <div class="card-body">
   <a href="logout.php"><button type="button" class="btn btn-outline-danger">Log out</button></a>
 
+  <a href="seller_index.php"><button type="button" class="btn btn-outline-info">My Info</button></a>
+
 <a href="display_item.php">
 <button type="button" class="btn btn-outline-primary">Bid Items</button>
 </a>
@@ -51,7 +53,7 @@ require_once('seller_usercontroller.php');
 <a href="seller_inventory.php">
 <button type="button" class="btn btn-outline-primary">Inventory</button>
 </a>
-  <h5 class="card-title">Bidding Process</h5>
+  <h5 class="card-title">Online Auction || Bidding Process</h5>
   
   </div>
 </div>
@@ -90,9 +92,7 @@ var x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "BIDDING CLOSED";
-    window.location.replace("seller_forfeit_auction.php");
-  }
+    document.getElementById("demo").innerHTML = "BIDDING CLOSED";  }
 }, 1000);
 </script>
 
