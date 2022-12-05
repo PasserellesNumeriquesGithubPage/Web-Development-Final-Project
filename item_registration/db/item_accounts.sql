@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 12:34 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Dec 05, 2022 at 02:50 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,14 +67,6 @@ CREATE TABLE `items_registered` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `items_registered`
---
-
-INSERT INTO `items_registered` (`itemNumber`, `itemGroup`, `itemName`, `itemDesc`, `itemValue`, `itemImg`, `endDate`, `user_id`) VALUES
-(84, 2012, 'Kim Ji-Hyo', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque praesentium vitae sunt adipisci vol', 2147483647, '316941252_145979558190692_5395805091359483200_n.jpg', '2022-12-04 00:00:00', 21),
-(85, 2012, 'TWICE ALBUM', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque praesentium vitae sunt adipisci vol', 999, '213881732_1229566830836870_8854702255430523458_n.jpg', '2022-12-23 00:00:00', 21);
-
 -- --------------------------------------------------------
 
 --
@@ -87,15 +79,9 @@ CREATE TABLE `tbl_bidders` (
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
-  `contact_no` varchar(255) NOT NULL
+  `contact_no` varchar(255) NOT NULL,
+  `profile_img` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_bidders`
---
-
-INSERT INTO `tbl_bidders` (`user_id`, `username`, `password`, `first_name`, `last_name`, `contact_no`) VALUES
-(11, 'bidder123', 'bidder123', 'Lady Ada', 'Lovelace', '0021038213');
 
 -- --------------------------------------------------------
 
@@ -109,16 +95,16 @@ CREATE TABLE `tbl_sellers` (
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
-  `contact_no` varchar(255) NOT NULL
+  `contact_no` varchar(255) NOT NULL,
+  `profile_img` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_sellers`
 --
 
-INSERT INTO `tbl_sellers` (`user_id`, `username`, `password`, `first_name`, `last_name`, `contact_no`) VALUES
-(19, 'seller123', 'seller123', 'Kent James', 'Sumayang', '123213124'),
-(21, 'seller456', 'seller456', 'Ji-Hyo', 'Sandoval', '091267876562');
+INSERT INTO `tbl_sellers` (`user_id`, `username`, `password`, `first_name`, `last_name`, `contact_no`, `profile_img`) VALUES
+(28, 'bidder07', 'bidder07', 'Kent James', 'Jihyo', '09128372183', '3p.png');
 
 --
 -- Indexes for dumped tables
@@ -183,13 +169,13 @@ ALTER TABLE `items_registered`
 -- AUTO_INCREMENT for table `tbl_bidders`
 --
 ALTER TABLE `tbl_bidders`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_sellers`
 --
 ALTER TABLE `tbl_sellers`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables

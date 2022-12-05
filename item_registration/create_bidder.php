@@ -32,8 +32,15 @@ require_once('config.inc.php');
             $first_name         =$_POST['first_name'];
             $last_name          =$_POST['last_name'];
             $contact_no         =$_POST['contact_no'];
+            $img                = $_FILES['profile_img']['name'];
 
-            $sql = "INSERT INTO tbl_bidders (username,password,first_name,last_name,contact_no) VALUES('$set_username','$set_password','$first_name','$last_name','$contact_no');";
+
+            $destination_path = getcwd().DIRECTORY_SEPARATOR;
+
+            $target = $destination_path.'images/'.basename($img);
+            move_uploaded_file($_FILES['profile_img']['tmp_name'], $target);
+
+            $sql = "INSERT INTO tbl_bidders (username,password,first_name,last_name,contact_no,profile_img) VALUES('$set_username','$set_password','$first_name','$last_name','$contact_no',$img);";
              
             $confirm_password   = $_POST['confirm_password'];
 
@@ -60,7 +67,7 @@ require_once('config.inc.php');
         ?>
     </div>
     <div>
-        <form action="create_seller.php" method="POST">
+        <form action="create_seller.php" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
@@ -84,6 +91,9 @@ require_once('config.inc.php');
 
                         <label for="contact_no"><b>Contact Number</b></label>
                         <input class="form-control" type="text" name="contact_no" required>
+
+                        <label for="profile_img"><b>Upload Image</b></label>
+                        <input class="form-control" type="file" id ="profile_img"  name="profile_img" required>
 
                         <hr class="mb-3">
                         <input class="btn btn-primary" type="submit" name="register" value="Register Item"> 
