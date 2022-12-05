@@ -24,6 +24,7 @@ require_once('seller_usercontroller.php')
   padding-bottom: 2rem;
   width: 50%
 }
+
 h2{
     text-align: center;
 }
