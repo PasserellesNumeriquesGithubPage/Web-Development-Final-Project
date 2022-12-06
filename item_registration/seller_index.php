@@ -14,7 +14,7 @@
         float: right;
     }
     img {
-  padding-top: 12%;
+  padding-top: 5%;
   display: block;
   margin-left: auto;
   margin-right: auto;

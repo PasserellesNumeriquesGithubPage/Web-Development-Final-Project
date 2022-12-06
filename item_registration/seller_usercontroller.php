@@ -19,6 +19,6 @@ if(isset($_SESSION['logged_in']) && isset($_SESSION['username']) && !empty($_SES
 
 }else{
     session_unset();
-    header("Location: login.php");
+    header("Location: logout.php");
 }
 ?>

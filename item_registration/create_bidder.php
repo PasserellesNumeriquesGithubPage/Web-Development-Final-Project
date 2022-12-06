@@ -18,7 +18,7 @@ require_once('config.inc.php');
 <body>
 <div class="card">
   <div class="card-body">
-  <h5 class="card-title">Seller Registration Process</h5>
+  <h5 class="card-title">Bidder Registration Process</h5>
   </div>
 </div>
 
@@ -40,7 +40,7 @@ require_once('config.inc.php');
             $target = $destination_path.'images/'.basename($img);
             move_uploaded_file($_FILES['profile_img']['tmp_name'], $target);
 
-            $sql = "INSERT INTO tbl_bidders (username,password,first_name,last_name,contact_no,profile_img) VALUES('$set_username','$set_password','$first_name','$last_name','$contact_no',$img);";
+            $sql = "INSERT INTO tbl_bidders (username,password,first_name,last_name,contact_no,profile_img) VALUES('$set_username','$set_password','$first_name','$last_name','$contact_no','$img');";
              
             $confirm_password   = $_POST['confirm_password'];
 
@@ -49,7 +49,15 @@ require_once('config.inc.php');
                 $result = mysqli_query($conn,$sql);
             
             // if(mysqli_num_rows($result) == 1){
-                echo "Registered sucessfully.<br><a href='login.php'>Go to Login</a>";
+                echo "<div class='container'>
+                <div class='row'>
+                    <div class='col'>
+                    <h1> Bidder Registration Successful</h1>
+            
+                        <h4>Welcome New Seller !</h4><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <hr class='mb-3'>
+                        <a href='login.php'><button type='button' class='btn btn-outline-info'>Go to Log in Items</button></a>
+                    </div>";
         exit();
             // }
 
@@ -67,11 +75,11 @@ require_once('config.inc.php');
         ?>
     </div>
     <div>
-        <form action="create_seller.php" method="POST" enctype="multipart/form-data">
+        <form action="create_bidder.php" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
-                        <h1>Online Auction || Seller Registration</h1>
+                        <h1>Bidder Registration</h1>
                         <p>Fill up the form with correct values.</p>
                         <hr class="mb-3">
                         <label for="set_username"><b>Enter Username</b></label>

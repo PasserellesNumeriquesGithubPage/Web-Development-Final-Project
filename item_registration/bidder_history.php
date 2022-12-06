@@ -47,43 +47,31 @@
         <th>Item Name</th>
         <th>Bid Value</th>
         <th>Bid Date</th>
-        <th></th>
       </tr>
     </thead>
     
-   
-    <tbody>
-        <tr>
-        <?php 
+    <?php 
           $stmt = $db->prepare(
-          "SELECT items_registered.* 
+          "SELECT items_registered.*,bids_registered.*
           FROM bids_registered
           INNER JOIN items_registered
-          ON bids_registered.itemNumber = items_registered.itemNumber LIMIT 1");
+          ON bids_registered.itemNumber = items_registered.itemNumber");
           $stmt->execute();
           $result = $stmt->fetchAll();
           ?>
           <?php
           foreach($result as $row){
           ?>
+    <tbody>
+        <tr>
+        
         <td><?php echo $row['itemNumber']; ?></td>
         <td><img src="images/<?php echo $row['itemImg'];?>" alt="" width="100px" height="100px"></td>
         <td><?php echo $row['itemName']; ?></td>
-       <?php }?>
-        <?php 
-          $stmt = $db->prepare(
-          "SELECT * 
-          FROM bids_registered
-          WHERE bidder_id = '$id'");
-          $stmt->execute();
-          $result = $stmt->fetchAll();
-          ?>
-          <?php
-          foreach($result as $row){
-          ?>
         <td><?php echo $row['bidValue']; ?></td>
         <td><?php echo $row['bidDate']; ?></td>
        <?php }?>
+       
       </tr>
     </tbody>
    

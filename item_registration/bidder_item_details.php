@@ -1,6 +1,6 @@
 <?php
 include_once('config.inc.php');
-require_once('seller_usercontroller.php');
+require_once('bidder_usercontroller.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

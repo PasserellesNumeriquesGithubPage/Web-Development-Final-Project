@@ -1,4 +1,5 @@
 <?php require_once('bidder_usercontroller.php')?>
+<?php include_once('config.inc.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
 </head>
-<body>
-  <style>
+<style>
     .btn{
       float: right;
     }
     img {
-  padding-top: 12%;
+  padding-top: 5%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -22,6 +22,8 @@
   width: 60%
 }
   </style>
+<body>
+  
 <body>
 <div class="card">
   <div class="card-body">
@@ -80,7 +82,6 @@
     }
     ?>
       
-    </div>
     <?php 
     $stmt = $db->prepare("SELECT * FROM tbl_bidders WHERE user_id = '$id'");
     $stmt->execute();

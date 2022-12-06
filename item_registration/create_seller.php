@@ -1,5 +1,6 @@
 <?php
 require_once('config.inc.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,15 @@ require_once('config.inc.php');
                 $result = mysqli_query($conn,$sql);
             
             // if(mysqli_num_rows($result) == 1){
-                echo "Registered sucessfully.<br><a href='login.php'>Go to Login</a>";
+                echo "<div class='container'>
+                <div class='row'>
+                    <div class='col'>
+                    <h1>Seller Registration Successful</h1>
+            
+                        <h4>Welcome New Seller !</h4><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <hr class='mb-3'>
+                        <a href='login.php'><button type='button' class='btn btn-outline-info'>Go to Log in Items</button></a>
+                    </div>";
         exit();
             // }
 

@@ -1,5 +1,6 @@
 <?php
 require_once('config.inc.php');
+require_once('bidder_usercontroller.php');
 if(isset($_POST['bid'])){
     $itemnumber = mysqli_real_escape_string($conn,$_POST['itemnumber']);
     $price = mysqli_real_escape_string($conn,$_POST['price']);

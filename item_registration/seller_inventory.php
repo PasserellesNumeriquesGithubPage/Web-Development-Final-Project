@@ -39,7 +39,7 @@
 <div class="container">
   <div class="container">
     <?php 
-    $stmt = $db->prepare("SELECT * FROM items_registered WHERE user_id = '$id'");
+    $stmt = $db->prepare("SELECT items_registered.*, bids_registered.* FROM items_registered INNER JOIN bids_registered ON bids_registered.itemNumber=items_registered.itemNumber WHERE user_id = '$id'");
     $stmt->execute();
     $result = $stmt->fetchAll();
 
@@ -67,25 +67,26 @@
         <td><?php echo $row['itemValue']; ?></td>
         <td><?php echo $row['endDate']; ?></td>
 
-        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a></td>
+        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a><p><?php?></p></td>
+        
+        <td> <a href="seller_delete_inventory.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-danger">Cancel Auction</button></a><p></p></td>
 
-        <td> <a href="seller_delete_inventory.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-danger">Cancel Auction</button></a></td> <?php }?>
+        <td><a href="seller_forfeit_auction.php?view=<?php echo $row['itemNumber']?>&id=<?php echo $row['user_id']?>&bid=<?php echo $row['bidder_id']?>"><button type="button" class="btn btn-outline-warning" onclick="myFunction()">Forfeit Auction</button></a><p id="demo"></p></td>
 
-        <?php $stmt = $db->prepare("SELECT items_registered.itemNumber, items_registered.user_id, bids_registered.bidder_id FROM items_registered INNER JOIN bids_registered ON bids_registered.itemNumber=items_registered.itemNumber;");
-
-         $stmt->execute();$result = $stmt->fetchAll();foreach($result as $row){?>
-        <td><a href="seller_forfeit_auction.php?view=<?php echo $row['itemNumber']?>&id=<?php echo $row['user_id']?>&bid=<?php echo $row['bidder_id']?>"><button type="button" class="btn btn-outline-warning">Forfeit Auction</button></a></td>  
-
-
+        <?php }?>
         </tr>
     </tbody>
     </table>
-    <?php }?>
+    
     
 
   </div>
 </div>
-
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Item has Been Forfeited.";
+}
+</script>
 </body>
 </html>
 <?php

@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
     
         $find_user_query = ("SELECT password FROM tbl_bidders where username='$username'");
         $result_query = mysqli_query($conn,$find_user_query) or die("Cannot connect to table");
-        echo $password;
+        
             if(mysqli_num_rows($result_query) == 1){
                 $dbpassword = mysqli_fetch_row($result_query)[0];
                 if ($dbpassword == $password){

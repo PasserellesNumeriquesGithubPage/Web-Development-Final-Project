@@ -1,5 +1,6 @@
 <?php
 include_once('config.inc.php');
+require_once('bidder_usercontroller.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +73,6 @@ h2{
                         <hr class="mb-3">
                         <label for="price"><b>Enter Price</b></label>
                         <input class="form-control" type="text" name="price" required>
-                        <?php  include('bidder_usercontroller.php');?>
                         <hr class="mb-3">
                         <label for="bidder"><b>Enter Name</b></label>
                         <input class="form-control" type="text" name="bidder" value="<?php echo $name?>" required>

@@ -57,7 +57,7 @@
     "SELECT items_registered.* 
     FROM auction_result
     INNER JOIN items_registered
-    ON auction_result.itemNumber = items_registered.itemNumber LIMIT 1
+    ON auction_result.itemNumber = items_registered.itemNumber 
     "
     );
     $stmt->execute();
