@@ -120,7 +120,6 @@ var x = setInterval(function() {
             <h2>Item Details</h2>
             <h5>Initial Value: ₱ <?php echo $row['itemValue'];?></h5>
             <h5>Description: <?php echo $row['itemDesc']; ?></h5>
-            <h5>Reason for selling: </h5>
             <hr>
     </div>
     

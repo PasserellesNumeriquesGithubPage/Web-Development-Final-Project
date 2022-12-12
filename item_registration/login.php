@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
 
     $find_user_query = ("SELECT password FROM tbl_sellers where username='$username'");
     $result_query = mysqli_query($conn,$find_user_query) or die("Cannot connect to table");
-    echo $password;
+    
         if(mysqli_num_rows($result_query) == 1){
             $dbpassword = mysqli_fetch_row($result_query)[0];
             if ($dbpassword == $password){
@@ -18,13 +18,10 @@ if(isset($_POST['submit'])){
                 $_SESSION['logged_in'] = true;
                 header('Location: seller_index.php');
             }else{
-               
-                $message = "Login Failed.";
-                echo $message;
+                
             }
         }else{
-            $message = "Login Failed.";
-            echo $message;
+            
         }
     }
     if(isset($_POST['submit'])){
@@ -43,11 +40,10 @@ if(isset($_POST['submit'])){
                     header('Location: bidder_index.php');
                 }else{
                    
-                    $message = "Login Failed.";
-                    echo $message;
+                    
                 }
             }else{
-                $message = "Login Failed.";
+                $message = "Login Failed. Incorrect credentials";
                 echo $message;
             }
         }

@@ -64,7 +64,7 @@
     foreach($result as $row){
     ?>
             <h5>Mobile Number:  <?php echo $mobile;?></h5>
-            <h5>Total Transactions: <?php echo $row[0]; ?></h5>
+            <h5>Total Transactions:  <?php echo $row[0]; ?>  bid(s).</h5>
             <?php
     }
     ?>
@@ -76,7 +76,7 @@
          <?php
     foreach($result as $row){
     ?>
-            <h5>Total Unclaimed Sold:<?php $row[0]?> </h5>
+            <h5>Total Unclaimed Win: <?php echo $row[0]?> item(s). </h5>
             <hr>
             <?php
     }
