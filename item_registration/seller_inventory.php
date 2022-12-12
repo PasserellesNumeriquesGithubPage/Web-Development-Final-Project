@@ -67,7 +67,7 @@
         <td><?php echo $row['itemValue']; ?></td>
         <td><?php echo $row['endDate']; ?></td>
 
-        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a><p><?php?></p></td>
+        <td> <a href="seller_item_details.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-success">View Item</button></a><p></p></td>
         
         <td> <a href="seller_delete_inventory.php?view=<?php echo $row['itemNumber']?>"><button type="button" class="btn btn-outline-danger">Cancel Auction</button></a><p></p></td>
 
